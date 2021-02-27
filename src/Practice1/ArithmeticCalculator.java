@@ -19,9 +19,7 @@ public class ArithmeticCalculator {
 	
 	
 	do {
-		
 		operator = input.next();
-		System.out.println("valid "+isOperator(operator));
 		
 	}while (!isOperator(operator));
 	
@@ -31,6 +29,8 @@ public class ArithmeticCalculator {
 	}while (!isNum);
 	
 	double num2 = Double.valueOf(data);
+	double result = operation(operator, num1, num2);
+	System.out.println(num1 + " " + operator + " " + num2 + " = " + result);
 	
 
 	}
@@ -41,7 +41,6 @@ public class ArithmeticCalculator {
 	    }
 	    try {
 	        double d = Double.valueOf(input);
-	       // int i = Integer.valueOf(input);
 	    } catch (NumberFormatException nfe) {
 	        return false;
 	    }
@@ -50,9 +49,6 @@ public class ArithmeticCalculator {
 	
 	
 	public static boolean isOperator(String operator) {
-		System.out.println("operator " + operator);
-		
-		
 		switch(operator) {
 		case ("+"):{
 			return true;
@@ -69,5 +65,23 @@ public class ArithmeticCalculator {
 		default: return false;
 		
 		}
+	}
+	
+	public static double operation(String operator,double num1, double num2) {
+		double result = 0;
+		if (operator.equals("+")) {
+			return num1 + num2;
+		}
+		if (operator.equals("-")) {
+			return num1 - num2;
+		}
+		if (operator.equals("*")) {
+			return num1 *  num2;
+		}
+		if (operator.equals("/")) {
+			return num1 /  num2;
+		}
+		return result;
+		
 	}
 }
