@@ -17,6 +17,8 @@ public class EmailValidation {
 		
 		Employee employee = new Employee();
 		boolean isAdd = true;
+		String email = null;
+		String response = null;
 		
 		Scanner s = new Scanner(System.in);
 		Pattern pattern = Pattern.compile(emailPattern);
@@ -28,10 +30,10 @@ public class EmailValidation {
 			
 			boolean isValid = false;
 			
-			//validation for email
 			do {
 				System.out.print("Please enter an email: ");
-				String email = s.next();
+				email = s.next();
+				//Email Validation
 				Matcher matcher = pattern.matcher(email);
 				
 				if (matcher.matches()) {
@@ -48,7 +50,7 @@ public class EmailValidation {
 			System.out.println("Do you want to add more employee? [Y/N]");
 
 			do {
-				String response = s.next();
+				response = s.next();
 				if (response.equalsIgnoreCase("y")) {
 					break;
 				}
@@ -62,18 +64,13 @@ public class EmailValidation {
 				}
 				
 			} while (true);	
-				
-
-			
-			
 		} while (isAdd);
+		s.close();
 		
-		
-			for (Employee emp:employees) {
-				System.out.println("Name:" +emp.getName() + "  Email:" + emp.getEmail());
-			}
-		
-		
+		System.out.println("Display all employees");
+		for (Employee emp:employees) {
+			System.out.println("Name:" +emp.getName() + "  Email:" + emp.getEmail());
+		}
 	}
 
 }
