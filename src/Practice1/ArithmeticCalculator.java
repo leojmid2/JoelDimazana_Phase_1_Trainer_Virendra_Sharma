@@ -27,6 +27,10 @@ public class ArithmeticCalculator {
 	
 		do {
 			operator = input.next();
+			boolean isValid = isOperator(operator);
+			if (!isValid) {
+				System.out.println("Enter a valid operator [+][-][*][/]");
+			}
 		}while (!isOperator(operator));
 	
 		do {
@@ -48,6 +52,7 @@ public class ArithmeticCalculator {
 	    try {
 	        double d = Double.valueOf(input);
 	    } catch (NumberFormatException nfe) {
+	    	System.out.println("Enter a valid number. Try again");
 	        return false;
 	    }
 	    return true;
