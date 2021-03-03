@@ -11,10 +11,8 @@ public class FileFunction implements IFileFunction {
 
 	@Override
 	public void writeToFile(String filename, String data, boolean isAppend) {
-		// TODO Auto-generated method stub
 		
         File file = new File(filename);
-        //System.out.println("File location " + file.getAbsolutePath());
         
         if (file.exists() && !isAppend) {
         	file.delete();
@@ -75,11 +73,10 @@ public class FileFunction implements IFileFunction {
 				fr = new FileReader(file);
 				reader = new BufferedReader(fr);
 				line = reader.readLine();
-				System.out.println("line " + line);
 				while (line != null) 
 				{
 					System.out.println(line);
-					line = reader.readLine();
+					line = reader.readLine(); //to determine the next line is null
 				}
 			}	
 			catch (IOException e)
