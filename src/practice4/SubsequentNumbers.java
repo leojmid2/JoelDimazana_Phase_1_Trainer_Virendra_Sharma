@@ -19,29 +19,25 @@ public class SubsequentNumbers {
 		int next =1;
 		
 			for (int i=0;i<num.length;i++) {
-				if (num[i] >= 100 ) {
+				if (num[i] >= 100 ) { //only validate the number < 100
 					next++;
 					continue;
 				}	
-
 				if(next<num.length && (num[i]+1)==num[next]) {
 					count+=1;
 					temp.add(num[i]);
 				}
 				else { 
-
 					if (count > highest) {
 						 highest = count;
 						 temp.add(num[i]); //to get the last data
 						 longest.clear();
 						 longest.addAll(temp);
-						 temp.clear();
-						 
+						 temp.clear(); 
 					}
 					count=1;
 				}	
 				next++;
-				
 			}
 		System.out.println("Total count of increasing subsequent number: " +highest);
 		System.out.println("Longest increasing subsequent number:" + longest.toString());
